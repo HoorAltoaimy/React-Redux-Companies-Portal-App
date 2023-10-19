@@ -67,3 +67,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.companies{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 0.5rem;
+}
+
+.company img{
+  width: 100%;
+}
+
+.actions{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+ul{
+  list-style-type: none;
+  margin: 1rem;
+}
