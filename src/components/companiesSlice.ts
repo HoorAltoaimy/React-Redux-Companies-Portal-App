@@ -11,12 +11,16 @@ const initialState: CompaniesState = {
 
 //any API call has to be inside createAsyncThunk(action type, asynchronus call)
 export const fetchCompanies = createAsyncThunk('companies/fetchCompanies', async () => {
+  try {
   const response = await fetch('https://api.github.com/organizations')
   if (!response.ok) {
     throw new Error('Network erroe')
   }
   const data = await response.json()
   return data
+} catch (error) {
+  console.log(error)
+}
 })
 
 export const fetchCompany = createAsyncThunk('companies/fetchCompany', async (id: number) => {

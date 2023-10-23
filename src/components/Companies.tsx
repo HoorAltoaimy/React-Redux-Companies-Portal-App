@@ -1,13 +1,15 @@
 import { ChangeEvent, useEffect } from 'react'
 import { fetchCompanies, searchCompany } from './companiesSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import { CompaniesDispatch, Company, RootState } from '../types'
 import SortCompanies from './SortCompanies'
-import { Link } from 'react-router-dom'
+
 
 const Companies = () => {
   const { companies, isLoading, error, searchInput } = useSelector(
-    (state: RootState) => state.companiesR
+    (state: RootState) => state.companiesReducer
   ) //useSelectore to use the store
 
   const dispatch: CompaniesDispatch = useDispatch()
@@ -24,7 +26,8 @@ const Companies = () => {
   }
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(searchCompany(event.target.value))
+    let searchItem = event.target.value;
+    dispatch(searchCompany(searchItem));
   }
 
   const filteredCompanies = searchInput

@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+
 import { fetchCompany, sortCompanies } from './companiesSlice'
 import { CompaniesDispatch, RootState } from '../types'
-import { Article } from '@mui/icons-material'
 
 const SingleCompany = () => {
   const { singleCompany, isLoading, error, searchInput } = useSelector(
-    (state: RootState) => state.companiesR
+    (state: RootState) => state.companiesReducer
   )
 
   const dispatch: CompaniesDispatch = useDispatch()
@@ -19,6 +19,7 @@ const SingleCompany = () => {
       dispatch(fetchCompany(Number(idNumber)))
     }
   }, [dispatch, idNumber])
+
   if (isLoading) {
     return <p>Data is loading</p>
   }

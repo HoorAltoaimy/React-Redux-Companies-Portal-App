@@ -6,7 +6,8 @@ const SortCompanies = () => {
   const dispatch = useDispatch()
 
   const handleOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    dispatch(sortCompanies(event.target.value))
+    let sortItem = event.target.value;
+    dispatch(sortCompanies(sortItem));
   }
 
   return (

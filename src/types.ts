@@ -25,7 +25,7 @@ export type CompaniesState = {
 }
 
 export type RootState = {
-  companiesR: ReturnType<typeof companiesSlice>
+  companiesReducer: ReturnType<typeof companiesSlice>
 }
 
 // typeing dispatch
